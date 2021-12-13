@@ -16,7 +16,7 @@
   (println (str ">> Part " part ":"))
   (loop [[config & rest] configs]
     (let [[file expected] config
-          input (read-input file)
+          input (read-input (format "day-%02d.%s.txt" day (name file)))
           answer (call-aoc year day part input)]
       (print (str "File: " file))
       (if (= answer expected)
@@ -31,35 +31,35 @@
     [2021 1] (do
                (run-part
                 year day 1
-                '(["day-01.example.txt", 7]
-                  ["day-01.input.txt", 1754]))
+                '([:example 7]
+                  [:input, 1754]))
 
                (run-part
                 year day 2
-                '(["day-01.example.txt", 5]
-                  ["day-01.input.txt", 1789])))
+                '([:example 5]
+                  [:input, 1789])))
 
     [2021 2] (do
                (run-part
                 year day 1
-                '(["day-02.example.txt", 150]
-                  ["day-02.input.txt", 2150351]))
+                '([:example, 150]
+                  [:input, 2150351]))
 
                (run-part
                 year day 2
-                '(["day-02.example.txt", 900]
-                  ["day-02.input.txt", 1842742223])))
+                '([:example, 900]
+                  [:input, 1842742223])))
 
     [2021 3] (do
                (run-part
                 year day 1
-                '(["day-03.example.txt", 198]
-                  ["day-03.input.txt", 4174964]))
+                '([:example, 198]
+                  [:input, 4174964]))
 
                (run-part
                 year day 2
-                '(["day-03.example.txt", 230]
-                  ["day-03.input.txt", 4474944])))
+                '([:example, 230]
+                  [:input, 4474944])))
 
     (println (str "AoC " year " exercise day " day " not implemented."))))
 
