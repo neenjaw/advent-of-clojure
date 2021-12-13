@@ -1,5 +1,6 @@
 (ns advent-of-clojure.aoc-2021.day-01
-  (:require [clojure.string :as string]))
+  (:require [clojure.string :as string])
+  (:use [advent-of-clojure.util :only [sum]]))
 
 (defn prep
   [input]
@@ -21,5 +22,5 @@
    (prep input)
    (partition 3 1)
    (partition 2 1)
-   (filter #(< (reduce + (first %)) (reduce + (last %))))
+   (filter #(< (sum (first %)) (sum (last %))))
    count))
