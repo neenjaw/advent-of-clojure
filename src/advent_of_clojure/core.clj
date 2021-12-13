@@ -1,7 +1,5 @@
 (ns advent-of-clojure.core
-  (:require [advent-of-clojure.aoc-2021.day-01]
-            [advent-of-clojure.aoc-2021.day-02]
-            [clojure.string :as string])
+  (:require [clojure.string :as string])
   (:use [clansi :only [style]]))
 
 (defn read-input
@@ -10,6 +8,7 @@
 
 (defn call-aoc
   [year day part input]
+  (require (symbol (format "advent-of-clojure.aoc-%4d.day-%02d" year day)))
   (apply (resolve (symbol (format "advent-of-clojure.aoc-%4d.day-%02d/part-%d" year day part))) [input]))
 
 (defn run-part
@@ -50,6 +49,17 @@
                 year day 2
                 '(["day-02.example.txt", 900]
                   ["day-02.input.txt", 1842742223])))
+
+    [2021 3] (do
+               (run-part
+                year day 1
+                '(["day-03.example.txt", 198]
+                  ["day-03.input.txt", 4174964]))
+
+               (run-part
+                year day 2
+                '(["day-03.example.txt", 230]
+                  ["day-03.input.txt", 4474944])))
 
     (println (str "AoC " year " exercise day " day " not implemented."))))
 
